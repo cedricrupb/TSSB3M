@@ -139,7 +139,7 @@ def mapreduce(map_fn, reduce_fn = jsonl_reduce_io, group_by = None):
         parser.add_argument("output_dir")
 
     parser.add_argument("--group_buffer", type=int, default = 100)
-    parser.add_argument("--no_parrallel", action="store_true")
+    parser.add_argument("--parrallel", action="store_true")
 
     args = parser.parse_args()
 
@@ -153,7 +153,7 @@ def mapreduce(map_fn, reduce_fn = jsonl_reduce_io, group_by = None):
         instance_stream = StreamGrouper(group_by, args.group_buffer)(instance_stream)
     
     # Map all instances in parallel
-    if args.no_parrallel:
+    if not args.parrallel:
         mapped_instance_stream = map(map_fn, instance_stream)
     else:
         mapped_instance_stream = pmap(map_fn, instance_stream)
