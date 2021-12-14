@@ -1,6 +1,6 @@
 
 """
-Should run after run_slc_process.py and rm_nostmt.py.
+Should run after run_slc_process.py -> rm_parse_errors.py -> rm_nostmt.py.
 
 Removes all (likely) non buggy commits.
 

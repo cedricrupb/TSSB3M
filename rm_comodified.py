@@ -1,12 +1,11 @@
 """
-Should run after run_slc_process.py -> rm_nostmt.py -> rm_nobug.py.
+Should run after run_slc_process.py -> rm_parse_errors.py -> rm_nostmt.py -> rm_nobug.py.
 
 Removes all commits that modifiy more than one file.
 
 Produces: TSSB-3M
 
 """
-
 
 from mapreduce import mapreduce
 

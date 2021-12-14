@@ -1,5 +1,5 @@
 """
-Should run after run_slc_process.py.
+Should run after run_slc_process.py -> rm_parse_errors.py.
 
 Removes all non single statement commits.
 
