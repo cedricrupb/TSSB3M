@@ -1,7 +1,7 @@
 # TSSB-3M: Mining single statement bugs at massive scale
 > Mining tool and large-scale datasets of single statement bug fixes in Python
 
-[[**DATASETS**](https://doi.org/10.5281/zenodo.5845439)]
+[[**DATASETS**](https://doi.org/10.5281/zenodo.5845439) | [**CODE ARTIFACT**](https://doi.org/10.5281/zenodo.5898547)]
 
 Access to single statement bug fixes at massive scale is not only important for exploring how developers introduce bugs in code and fix them but it is also
 a valuable ressource for research in data-driven
@@ -139,6 +139,8 @@ the AST edit script into an edit pattern. The translation converts for example i
 
 `typo_identification.py`: Computes the percentage
 of bug fixing commits that can be likely attributed to typos. Code changes are considered as typo fixes whenever the Damerau-Levenshtein distance between bug and fix is lower equal 2.
+
+
 
 
 
