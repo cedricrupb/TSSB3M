@@ -24,9 +24,9 @@ to a higher variety.
 
 * [NonSStuBs:](#nonsstubs) Most single statement bugs can be repaired with the same operations as needed for repairing SStuBs. It is likely that effective detection and repair methods for SStuBs will be effective for general single statement bugs.
 
-* [Bug-fix complexity:]() Single statement bugs typically require simple fixes. A bug is typically fixed by 4 to 5 AST modifications.
+* [Bug-fix complexity:](#complexity-of-a-bug-fix) Single statement bugs typically require simple fixes. A bug is typically fixed by 4 to 5 AST modifications.
 
-* [Typos:]() Typos are more common than expected for single statement bugs. At least 20% of single statement bugs are likely caused by a typo.
+* [Typos:](#typos) Typos are more common than expected for single statement bugs. At least 20% of single statement bugs are likely caused by a typo.
 
 ### Dataset Info
 In the following, we provide a closer look at the dataset statsistics of TSSB-3M and SSB-9M.
@@ -52,7 +52,29 @@ Less Specific If   	|   22K	|      45K
 Change Keyword Argument Used  	|   20K	|      59K
 Change Unary Operator 	|   15K	|      23K
 Same Function Swap Args 	|   8K	|      77K
-Change Constant Type	|   6K	|   12K        
+Change Constant Type	|   6K	|   12K  
+
+Some examples for Python bug fixes that are classified as SStuBs will be coming soon in our [repository](https://github.com/cedricrupb/TSSB3M). Until then, [ManySStuBs4J](https://github.com/mast-group/mineSStuBs) provides a nice overview of examples for Java.
 
 ### NonSStuBs
+Only around 40% of all single statement bugs in our datasets can be classified by a SStuB pattern (in one of the categories of the previous section). For this reason, we analysed the remaining single statement bugs in the TSSB-3M dataset.
+
 ![NonSStub image](/TSSB3M/assets/nonsstub.png)
+
+We found that NonSStuBs (i.e. bugs that do not classify as a SStuB) are actually quite similar to SStuBs. In the previous image, we compared the edit operations needed to fix a SStuB with the operations needed to fix a NonSStuB. 
+We observed that most NonSStuB employ the same or similar operation types to fix a bug. Still, there exists some infrequent bugs (SStuB-unrelated) that are not covered by any SStuB category.
+
+### Complexity of a Bug-Fix
+Most existing methods in automatic repair focus on bugs
+that can be fixed within a few edit operations. Therefore, we analyzed how many edit operations are needed in our TSSB-3M dataset.
+
+![Complexity image](/TSSB3M/assets/complexity.png)
+
+The figure shows the distribution of the length of individual bug fixes. We find that most bugs can be fixed within a few edit operations (4-5 operations). However, there still exists bugs that require a much higher number of fix operations.
+
+### Typos
+Humans commonly mistype during writting text. Since code is also written text, we expect that typos occur often in code and hence are also common for single statement bug fixes.
+
+![Typo image](/TSSB3M/assets/typos.png)
+
+In the shown image, we count how often a bug is fixed by inserting, removing or transposing up to two characters. Unsurprisingly, we found that typos occur often both in SSB-9M and TSSB-3M (atleast 20% of all bug fixes). In addition, they have a frequency for fixes that address identifiers or strings.
