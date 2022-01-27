@@ -6,7 +6,7 @@ bug detection and repair, single statement bug fixes at the scale of millionth e
 datasets consisting of single statement changes and bug fixes from over 500K Python Git projects.
 
 ### Datasets
-To download our datasets for your research, use:
+To download our datasets, use:
 
 * [TSSB-3M](): A dataset of over 3 million isolated single statement bug fixes. Each bug fix is related to a commit in a public Python that does not change more than a single statement.
 
@@ -17,12 +17,12 @@ To download our datasets for your research, use:
 All datasets are also available at [Zenodo](https://zenodo.org/record/5845439).
 
 ### Main Takeaways
-Datasets of single statement bugs such as [ManySStuBs4J](https://github.com/mast-group/mineSStuBs) in Java or [PySStuBs](https://zenodo.org/record/4589607) in Python have helped us a lot in our research. However, their size limited the upscaling of experiments and data analysis. Therefore, we are excited to release three new datasets several magnitudes larger than any existing bug collections.
+Datasets of single statement bugs such as [ManySStuBs4J](https://github.com/mast-group/mineSStuBs) in Java or [PySStuBs](https://zenodo.org/record/4589607) in Python have helped us a lot in our research. However, their size limited the upscaling of experiments and data analyses. Therefore, we are excited to release three new datasets several magnitudes larger than any existing bug collections.
 Here are our main takeaways for our datasets:
 * [Dataset statistics:](#dataset-info) SSB-9M contains more than 50x more SStuBs than PySStuBs. With focus on isolated bug fixes, TSSB-3M still contains more than 20x more SStuBs than PySStuBs. This gives us access to not only a larger quantity of simple bugs but also
 to a higher variety.
 
-* [NonSStuBs:]() Most single statement bugs can be repaired with the same operations as needed for repairing SStuBs. It is likely that effective detection and repair methods for SStuBs will be effective for general single statement bugs.
+* [NonSStuBs:](#nonsstubs) Most single statement bugs can be repaired with the same operations as needed for repairing SStuBs. It is likely that effective detection and repair methods for SStuBs will be effective for general single statement bugs.
 
 * [Bug-fix complexity:]() Single statement bugs typically require simple fixes. A bug is typically fixed by 4 to 5 AST modifications.
 
@@ -52,5 +52,7 @@ Less Specific If   	|   22K	|      45K
 Change Keyword Argument Used  	|   20K	|      59K
 Change Unary Operator 	|   15K	|      23K
 Same Function Swap Args 	|   8K	|      77K
-Change Constant Type	|   6K	|   12K                   
-  
+Change Constant Type	|   6K	|   12K        
+
+### NonSStuBs
+![NonSStub image](/TSSB3M/assets/nonsstub.png)
