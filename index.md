@@ -1,37 +1,17 @@
-## Welcome to GitHub Pages
+## TSSB-3M: Mining single statement bugs at massive scale
 
-You can use the [editor on GitHub](https://github.com/cedricrupb/TSSB3M/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Single statement bugs (and bug fixes) play a major role in the evaluation and design of automatic bug finders and
+program repair. With the recent advances in data-driven
+bug detection and repair, single statement bug fixes at the scale of millionth examples become more important than ever. For this reason, we are releasing three new
+datasets consisting of single statement changes and bug fixes from over 500K Git projects.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Datasets
+To facilitate future research, we are releasing three datasets:
 
-### Markdown
+* [**TSSB-3M**](): A dataset of over 3 million isolated single statement bug fixes. Each bug fix is related to a commit in a public Python that does not change more than a single statement.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+* [**SSB-9M**](): A dataset of over 9 million single statement bug fixes. Each fix modifies at least a single statement to fix a bug. However, the related code changes might incorporate changes to other files.
 
-```markdown
-Syntax highlighted code block
+* [**SSC-28M**](): A dataset of over 28 million general single statement changes. We are releasing this dataset with the intention to faciliate research in software evoluation. Therefore, a code change might not necessarily relate to a bug fix.
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/cedricrupb/TSSB3M/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+All datasets are also available at [Zenodo](https://zenodo.org/record/5845439).
