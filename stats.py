@@ -9,7 +9,7 @@ from mapreduce import mapreduce
 import json
 from collections import defaultdict
 
-from edit_abstraction import abstract_edit_script
+from tssb_miner.edit_abstraction import abstract_edit_script
 
 
 def label_instance(slc):
