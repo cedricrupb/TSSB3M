@@ -18,55 +18,39 @@ All datasets are also available at [Zenodo](https://zenodo.org/record/5845439).
 
 ### Main Takeaways
 Datasets of single statement bugs such as [ManySStuBs4J](https://github.com/mast-group/mineSStuBs) in Java or [PySStuBs](https://zenodo.org/record/4589607) in Python have helped us a lot in our research. However, their size limited the upscaling of experiments and data analysis. Therefore, we are excited to release three new datasets several magnitudes larger than any existing bug collections.
-Here are our main takeaways from first analyses of our datasets: 
+Here are our main takeaways for our datasets:
 * [Dataset statistics:](#dataset-info) SSB-9M contains more than 50x more SStuBs than PySStuBs. With focus on isolated bug fixes, TSSB-3M still contains more than 20x more SStuBs than PySStuBs. This gives us access to not only a larger quantity of simple bugs but also
 to a higher variety.
 
+* [NonSStuBs:]() Most single statement bugs can be repaired with the same operations as needed for repairing SStuBs. It is likely that effective detection and repair methods for SStuBs will be effective for general single statement bugs.
+
+* [Bug-fix complexity:]() Single statement bugs typically require simple fixes. A bug is typically fixed by 4 to 5 AST modifications.
+
+* [Typos:]() Typos are more common than expected for single statement bugs. At least 20% of single statement bugs are likely caused by a typo.
 
 ### Dataset Info
-In the following, we provide a closer look at the dataset statsistics and data schema of TSSB-3M and SSB-9M.
-
-### Statistics
+In the following, we provide a closer look at the dataset statsistics of TSSB-3M and SSB-9M.
 
 Pattern Name	|	TSSB-3M|	SSB-9M     
 ----------------|----------------|-----------------------
-| Change Idenfier Used  	|   237K	|      659K      	
-| Change Binary Operand  	|   174K	|      349K      
-| Same Function More Args 	|   150K	|      457K   
-| Wrong Function Name    	|   134K	|      397K
-| Add Function Around Expression 	|   117K	|      244K 
-| Change Attribute Used 	|   104K	|      285K      
-| Change Numeric Literal 	|   97K	|      275K 
-| More Specific If  	|   68K	|      121K
-| Add Method Call  	|   60K	|      118K          	
-| Add Elements To Iterable  	|   57K	|      175K
-| Same Function Less Args 	|   50K	|      169K     
-| Change Boolean Literal  	|   37K	|      82K
-| Add Attribute Access  	|   32K	|      74K
-| Change Binary Opertor  	|   29K	|      71K
-| Same Function Wrong Caller  	|   25K	|      46K
-| Less Specific If   	|   22K	|      45K
-| Change Keyword Argument Used  	|   20K	|      59K
-| Change Unary Operator 	|   15K	|      23K
-| Same Function Swap Args 	|   8K	|      77K
-| Change Constant Type	|   6K	|      12K                   
+Change Idenfier Used  	|   237K	|      659K      
+Change Binary Operand  	|   174K	|      349K      
+Same Function More Args 	|   150K	|      457K   
+Wrong Function Name    	|   134K	|      397K
+Add Function Around Expression 	|   117K	|      244K 
+Change Attribute Used 	|   104K	|      285K      
+Change Numeric Literal 	|   97K	|      275K 
+More Specific If  	|   68K	|      121K
+Add Method Call  	|   60K	|      118K          	
+Add Elements To Iterable  	|   57K	|      175K
+Same Function Less Args 	|   50K	|      169K     
+Change Boolean Literal  	|   37K	|      82K
+Add Attribute Access  	|   32K	|      74K
+Change Binary Opertor  	|   29K	|      71K
+Same Function Wrong Caller  	|   25K	|      46K
+Less Specific If   	|   22K	|      45K
+Change Keyword Argument Used  	|   20K	|      59K
+Change Unary Operator 	|   15K	|      23K
+Same Function Swap Args 	|   8K	|      77K
+Change Constant Type	|   6K	|   12K                   
   
-### JSON fields
-The released dataset indexes up to 28 million single statement change commits from more than 460K git projects. All dataset entries are stored in a compressed [jsonlines](https://jsonlines.org) format. Because of size of the dataset, we sharded the dataset in files containing 100.000 commits each. Each entry does not only contain information to access the original source code but also information supporting basic analyses. A description of the stored json objects is given in the following:
-
-**Commit details:**
-- **project:** Name of the git project where the commit occurred.
-- **project_url:** URL of project containing the commit
-- **commit_sha:** commit SHA of the code change
-- **parent_sha:** commit SHA of the parent commit
-- **file_path:** File path of the changed source file
-- **diff:** Universal diff describing the change made during the commit
-- **before:** Python statement before commit
-- **after:** Python statement after commit (addresses the same line)
-
-**Commit analysis:**
-- **likely_bug:** `true` if the commit message indicates that the commit is a bug fix. This is heuristically determined.
-- **comodified:** `true` if the commit modifies more than one statement in a single file (formatting and comments are ignored).
-- **in_function:** `true` if the changed statement appears inside a Python function
-- **sstub_pattern:** the name of the single statement change pattern the commit can be classified for (if any). Default: `SINGLE_STMT`
-- **edit_script:** A sequence of AST operation to transform the code before the commit to the code after the commit (includes `Insert`, `Update`, `Move` and `Delete` operations).
