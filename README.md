@@ -1,7 +1,7 @@
 # TSSB-3M: Mining single statement bugs at massive scale
 > Mining tool and large-scale datasets of single statement bug fixes in Python
 
-[[**DATASETS**](https://doi.org/10.5281/zenodo.5845439) | [**CODE ARTIFACT**](https://doi.org/10.5281/zenodo.5898547)]
+[[**DATASETS**](#datasets) | [**CODE ARTIFACT**](https://doi.org/10.5281/zenodo.5898547)]
 
 Access to single statement bug fixes at massive scale is not only important for exploring how developers introduce bugs in code and fix them but it is also
 a valuable ressource for research in data-driven
@@ -10,12 +10,12 @@ bug detection and automatic repair. Therefore, we are releasing multiple large-s
 ## Datasets
 To facilitate future research, we are releasing three
 datasets:
-* **TSSB-3M:** A dataset of over 3 million isolated single statement bug fixes. Each bug fix is related to a commit in a public Python that does not change more 
+* [**TSSB-3M:**](https://tssb3m.s3.eu-west-1.amazonaws.com/tssb_data_3M.zip) A dataset of over 3 million isolated single statement bug fixes. Each bug fix is related to a commit in a public Python that does not change more 
 than a single statement.
 
-* **SSB-9M:** A dataset of over 9 million single statement bug fixes. Each fix modifies at least a single statement to fix a bug. However, the related code changes might incorporate changes to other files.
+* [**SSB-9M:**](https://tssb3m.s3.eu-west-1.amazonaws.com/ssb_data_9M.zip) A dataset of over 9 million single statement bug fixes. Each fix modifies at least a single statement to fix a bug. However, the related code changes might incorporate changes to other files.
 
-* **SSC-28M:** A dataset of over 28 million general single statement changes. We are releasing this dataset with the intention to faciliate research in software evoluation. Therefore, a code change might not necessarily relate to a bug fix.
+* [**SSC-28M:**](https://tssb3m.s3.eu-west-1.amazonaws.com/ssc_data_28M.zip) A dataset of over 28 million general single statement changes. We are releasing this dataset with the intention to faciliate research in software evoluation. Therefore, a code change might not necessarily relate to a bug fix.
 
 All datasets are available at [Zenodo](https://doi.org/10.5281/zenodo.5845439).
 
