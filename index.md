@@ -8,11 +8,11 @@ datasets consisting of single statement changes and bug fixes from over 500K Pyt
 ### Datasets
 To download our datasets, use:
 
-* [TSSB-3M](): A dataset of over 3 million isolated single statement bug fixes. Each bug fix is related to a commit in a public Python that does not change more than a single statement.
+* [TSSB-3M](https://tssb3m.s3.eu-west-1.amazonaws.com/tssb_data_3M.zip): A dataset of over 3 million isolated single statement bug fixes. Each bug fix is related to a commit in a public Python that does not change more than a single statement.
 
-* [SSB-9M](): A dataset of over 9 million single statement bug fixes. Each fix modifies at least a single statement to fix a bug. However, the related code changes might incorporate changes to other files.
+* [SSB-9M](https://tssb3m.s3.eu-west-1.amazonaws.com/ssb_data_9M.zip): A dataset of over 9 million single statement bug fixes. Each fix modifies at least a single statement to fix a bug. However, the related code changes might incorporate changes to other files.
 
-* [SSC-28M](): A dataset of over 28 million general single statement changes. We are releasing this dataset with the intention to faciliate research in software evoluation. Therefore, a code change might not necessarily relate to a bug fix.
+* [SSC-28M](https://tssb3m.s3.eu-west-1.amazonaws.com/ssc_data_28M.zip): A dataset of over 28 million general single statement changes. We are releasing this dataset with the intention to faciliate research in software evoluation. Therefore, a code change might not necessarily relate to a bug fix.
 
 All datasets are also available at [Zenodo](https://zenodo.org/record/5845439).
 
