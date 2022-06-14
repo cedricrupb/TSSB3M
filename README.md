@@ -40,6 +40,25 @@ of SStuB patterns.
 
 This repository additionaly includes all scripts used for mining single line edits and for filtering the datasets for single statement bug fixes. A description of the mining process can be found [below](#Mining-Process).
 
+## Quick start (for using the datasets)
+We provide our datasets as sets of commits referenced by URLs and git SHAs
+and annotated with additional analytical information. All entries are stored in jsonlines format where each entry contains the following information:
+```json
+{
+  "project_url": "URL of project containing the commit",
+  "commit_sha" : "commit SHA of the code change",
+  "file_path"  : "File path of the changed source file",
+  "diff"       : "Universal diff of the code change",
+  ...
+}
+```
+A more detailed overview can be found [here](#json-fields). While this data contained in our datasets can be sufficient for most use cases, we sometimes which to extract the exact code from the original project. Therefore, we provide a `get_python_bugs.py` script that provides a frame implementation for extracting the code before and after the bug fix included in our datasets. The script automatically reads the datasets and clones the original repositories (thanks to [PyDriller](https://github.com/ishepard/pydriller)). The `visit_buggy_commit` need to be implemented:
+
+* `visit_buggy_commit` is called on the referenced commit. Information like the code before and after the commit can be obtained
+by processing the available PyDriller objects. Results of the mining process can be automatically stored by just returning JSON dict which
+is then stored in a jsonlines format.
+
+Note however that cloning all datasets might require multiple days (or month) on a single machine. Therefore, filtering the dataset beforehand might be necessary.
 
 ## Dataset Info
 In the following, we provide an overview over central
