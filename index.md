@@ -5,7 +5,7 @@ program repair. With the recent advances in data-driven
 bug detection and repair, single statement bug fixes at the scale of millionth examples become more important than ever. For this reason, we are releasing three new
 datasets consisting of single statement changes and bug fixes from over 500K Python Git projects.
 
-## :warning: Deduplicated Datasets
+### Deduplicated Datasets
 We came to notice that our datasets contain a significant number of duplicate patches that were missed by our deduplication procedure. To mitigate this, we are releasing cleaned versions of **TSSB-3M** and **SSB-9M**:
 
 * [**CTSSB-1M**](https://tssb3m.s3.eu-west-1.amazonaws.com/ctssb_data_1M.zip) A cleaned version of TSSB-3M containing nearly a million isolated single statement bug fixes. 
