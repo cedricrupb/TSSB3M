@@ -14,7 +14,7 @@ We came to notice that our datasets contain a significant number of duplicate pa
 
 * [**CSSB-2.6M**](https://tssb3m.s3.eu-west-1.amazonaws.com/cssb_data_2_6M.zip) A cleaned version of SSB-9M containing over 2.6 million single statement bug fixes.
 
-To obtain the cleaned versions of the two datasets we implemented a more aggressive deduplication scheme (see `run_udiff_deduplication.py`). The cleaned datasets are also available on [Zenodo](https://doi.org/10.5281/zenodo.5845439). Statistics of the new datasets can be found [below](#statistics).
+To obtain the cleaned versions of the two datasets we implemented a more aggressive deduplication scheme (see `run_udiff_deduplication.py`). The cleaned datasets are also available on [Zenodo](https://doi.org/10.5281/zenodo.10217373). Statistics of the new datasets can be found [below](#statistics).
 
 ## Datasets
 To facilitate future research, we are releasing three
@@ -26,7 +26,7 @@ than a single statement.
 
 * [**SSC-28M:**](https://tssb3m.s3.eu-west-1.amazonaws.com/ssc_data_28M.zip) A dataset of over 28 million general single statement changes. We are releasing this dataset with the intention to faciliate research in software evolution. Therefore, a code change might not necessarily relate to a bug fix.
 
-All datasets are available at [Zenodo](https://doi.org/10.5281/zenodo.5845439).
+All datasets are available at [Zenodo](https://doi.org/10.5281/zenodo.10217373).
 
 The datasets were collected for our research project related to:
 ```bibtex
