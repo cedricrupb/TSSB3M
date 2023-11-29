@@ -4,8 +4,17 @@
 [[**PAPER**](https://arxiv.org/abs/2201.12046) | [**DATASETS**](#datasets) | [**CODE ARTIFACT**](https://doi.org/10.5281/zenodo.5898547)]
 
 Access to single statement bug fixes at massive scale is not only important for exploring how developers introduce bugs in code and fix them but it is also
-a valuable ressource for research in data-driven
+a valuable resource for research in data-driven
 bug detection and automatic repair. Therefore, we are releasing multiple large-scale collections of single statement bug fixes mined from public Python repositories.
+
+## :warning: Deduplicated Datasets
+We came to notice that our datasets contain a significant number of duplicate patches that were missed by our deduplication procedure. To mitigate this, we are releasing cleaned versions of **TSSB-3M** and **SSB-9M**:
+
+* [**CTSSB-1M**](https://tssb3m.s3.eu-west-1.amazonaws.com/ctssb_data_1M.zip) A cleaned version of TSSB-3M containing nearly a million isolated single statement bug fixes. 
+
+* [**CSSB-2.6M**](https://tssb3m.s3.eu-west-1.amazonaws.com/cssb_data_2_6M.zip) A cleaned version of SSB-9M containing over 2.6 million single statement bug fixes.
+
+To obtain the cleaned versions of the two datasets we implemented a more aggressive deduplication scheme (see `run_udiff_deduplication.py`). The cleaned datasets are also available on [Zenodo](https://doi.org/10.5281/zenodo.5845439). Statistics of the new datasets can be found [below](#statistics).
 
 ## Datasets
 To facilitate future research, we are releasing three
@@ -69,35 +78,35 @@ dataset entries.
 
 SStuB statistic:
 
-Pattern Name	|	TSSB-3M|	SSB-9M     
-----------------|----------------|-----------------------
-| Change Idenfier Used  	|   237K	|      659K      	
-| Change Binary Operand  	|   174K	|      349K      
-| Same Function More Args 	|   150K	|      457K   
-| Wrong Function Name    	|   134K	|      397K
-| Add Function Around Expression 	|   117K	|      244K 
-| Change Attribute Used 	|   104K	|      285K      
-| Change Numeric Literal 	|   97K	|      275K 
-| More Specific If  	|   68K	|      121K
-| Add Method Call  	|   60K	|      118K          	
-| Add Elements To Iterable  	|   57K	|      175K
-| Same Function Less Args 	|   50K	|      169K     
-| Change Boolean Literal  	|   37K	|      82K
-| Add Attribute Access  	|   32K	|      74K
-| Change Binary Opertor  	|   29K	|      71K
-| Same Function Wrong Caller  	|   25K	|      46K
-| Less Specific If   	|   22K	|      45K
-| Change Keyword Argument Used  	|   20K	|      59K
-| Change Unary Operator 	|   15K	|      23K
-| Same Function Swap Args 	|   8K	|      77K
-| Change Constant Type	|   6K	|      12K                   
+Pattern Name	| CTSSB-1M |	TSSB-3M|	SSB-9M     
+----------------|----------------|----------------|-----------------------
+| Change Idenfier Used  | 69K	|   237K	|      659K      	
+| Change Binary Operand | 48K	|   174K	|      349K      
+| Same Function More Args | 41K	|   150K	|      457K   
+| Wrong Function Name   | 39K	|   134K	|      397K
+| Add Function Around Expression | 32K	|   117K	|      244K 
+| Change Attribute Used  | 30K	|   104K	|      285K      
+| Change Numeric Literal | 33K	|   97K	|      275K 
+| More Specific If  | 16K	|   68K	|      121K
+| Add Method Call  | 17K 	|   60K	|      118K          	
+| Add Elements To Iterable | 15K 	|   57K	|      175K
+| Same Function Less Args | 14K	|   50K	|      169K     
+| Change Boolean Literal | 13K 	|   37K	|      82K
+| Add Attribute Access | 10K 	|   32K	|      74K
+| Change Binary Operator | 9K	|   29K	|      71K
+| Same Function Wrong Caller | 8K	|   25K	|      46K
+| Less Specific If  | 5K 	|   22K	|      45K
+| Change Keyword Argument Used | 6K 	|   20K	|      59K
+| Change Unary Operator  | 4K	|   15K	|      23K
+| Same Function Swap Args | 2K	|   8K	|      77K
+| Change Constant Type | 2K	|   6K	|      12K                   
   
 
 NonSStuB Statistic:
-Pattern Name	|	TSSB-3M|	SSB-9M     
-----------------|----------------|-----------------------
-Single Statement|   1.15M      | 3.37M
-Single Token    |   740K       | 2.2M
+Pattern Name	| CTSSB-1M |	TSSB-3M|	SSB-9M     
+----------------|----------------|----------------|-----------------------
+Single Statement| 333K |   1.15M      | 3.37M
+Single Token    | 220K |   740K       | 2.2M
 
 ### JSON fields
 The released dataset indexes up to 28 million single statement change commits from more than 460K git projects. All dataset entries are stored in a compressed [jsonlines](https://jsonlines.org) format. Because of size of the dataset, we sharded the dataset in files containing 100.000 commits each. Each entry does not only contain information to access the original source code but also information supporting basic analyses. A description of the stored json objects is given in the following:
