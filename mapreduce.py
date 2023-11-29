@@ -14,7 +14,8 @@ from contextlib import contextmanager
 
 def iter_jsonl_gz(jsonl_file_paths):
     for path in jsonl_file_paths:
-        with gzip.open(path, 'r') as lines:
+        open_fn = gzip.open(path, 'r') if path.endswith('gz') else open(path)
+        with open_fn as lines:
             for line in lines:
                 yield json.loads(line)
 
@@ -144,6 +145,7 @@ def mapreduce(map_fn, reduce_fn = jsonl_reduce_io, group_by = None):
     args = parser.parse_args()
 
     jsonl_files = glob(os.path.join(args.input_dir, "*.jsonl.gz"))
+    jsonl_files += glob(os.path.join(args.input_dir, "*.jsonl"))
 
     # Load instances as stream
     instance_stream = iter_jsonl_gz(jsonl_files)
